@@ -49,10 +49,11 @@ class BlinkGame(Screen):
         if not game_is_running:
             Clock.schedule_interval(self.set_color, 0.5)
             game_is_running = True
+            Clock.schedule_once(self.stopgame, 20)
         else:
             pass
 
-    def stopgame(self):
+    def stopgame(self, *args):
         Clock.unschedule(self.set_color)
 
 

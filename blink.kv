@@ -8,11 +8,20 @@
 <Homescreen>:
     BoxLayout:
         orientation:'vertical'
-        Button:
-            text: 'Goto game'
-            on_press: root.manager.current = 'game'
-        Button:
-            text: 'Quit'
+        Label:
+            halign: 'center'
+            font_size: 30
+            text: 'Welcome to BlinkGame\n|\n|\n|\nv\nThis is a logo'
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y: None
+            height: "80dp"
+            Button:
+                text: 'Goto game'
+                on_press: root.manager.current = 'game'
+            Button:
+                text: 'Quit'
+                on_press: app.stop()
 
 <BlinkGame>:
     BoxLayout:
