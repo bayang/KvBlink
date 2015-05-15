@@ -5,9 +5,9 @@
     on_press: self.win_or_not()
 
 
-
 <Homescreen>:
     BoxLayout:
+        orientation:'vertical'
         Button:
             text: 'Goto game'
             on_press: root.manager.current = 'game'

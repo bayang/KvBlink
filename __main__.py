@@ -5,6 +5,8 @@ from kivy.uix.widget import Widget
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
 from kivy.properties import BooleanProperty
 from random import random, choice
 import time
@@ -18,6 +20,8 @@ class BlinkButton(Button):
     blinking = BooleanProperty(False)
     def win_or_not(self):
         if self.blinking:
+            popup = Popup(title='Win', content=Label(text='You win'), size_hint=(0.5, 0.5))
+            popup.open()
             print("you win")
         else:
             print("try again")
