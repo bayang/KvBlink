@@ -1,47 +1,64 @@
 #: import main __main__
 
-BlinkGame:
+<BlinkButton>:
+    background_color:(1,0,1,1)
+    on_press: self.win_or_not()
+
+
+
+<Homescreen>:
+    BoxLayout:
+        Button:
+            text: 'Goto game'
+            on_press: root.manager.current = 'game'
+        Button:
+            text: 'Quit'
 
 <BlinkGame>:
-    orientation:'vertical'
-    GridLayout:
-        
-        cols:3
-        padding:3
-        spacing:3
-        Button:
-            id:bu1
-            background_color:(1,0,1,1)
-        Button:
-            id:bu2
-            background_color:(1,0,1,1)
-        Button:
-            id:bu3
-            background_color:(1,0,1,1)
-        Button:
-            id:bu4
-            background_color:(1,0,1,1)
-        Button:
-            id:bu5
-            background_color:(1,0,1,1)
-        Button:
-            id:bu6
-            background_color:(1,0,1,1)
-        Button:
-            id:bu7
-            background_color:(1,0,1,1)
-        Button:
-            id:bu8
-            background_color:(1,0,1,1)
-        Button:
-            id:bu9
-            background_color:(1,0,1,1)
-
     BoxLayout:
-        orientation:'horizontal'
-        size_hint_y: None
-        height: "40dp"
-        Button:
-            text: "Start"
-        Button:
-            text: "Stop"
+        orientation:'vertical'
+        GridLayout:
+
+            cols: 3
+            padding: 3
+            spacing: 3
+            BlinkButton:
+                id:bu1
+
+            BlinkButton:
+                id:bu2
+
+            BlinkButton:
+                id:bu3
+
+            BlinkButton:
+                id:bu4
+
+            BlinkButton:
+                id:bu5
+
+            BlinkButton:
+                id:bu6
+
+            BlinkButton:
+                id:bu7
+
+            BlinkButton:
+                id:bu8
+
+            BlinkButton:
+                id:bu9
+
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y: None
+            height: "40dp"
+            Button:
+                text: "Start"
+                on_press: root.startgame()
+            Button:
+                text: "Stop"
+                on_press: root.stopgame()
+            Button:
+                text: "Back to Home"
+                on_press: root.manager.current = 'home'
