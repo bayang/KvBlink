@@ -89,6 +89,7 @@ class BlinkGame(Screen):
 class BlinkApp(App):
     store = JsonStore("Scores.json")
     SCORE = NumericProperty(0)
+    thescores = ListProperty(list(store.find()))
 
     def save(*args):
         dt = datetime.now().strftime("%d-%b-%y ; %H:%M")

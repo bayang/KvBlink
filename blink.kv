@@ -102,7 +102,7 @@ ScreenManager:
         Label:
             text: "Your Scores"
         ListView:
-            item_strings: [x[0] + ' ' + str(x[1]['score']) for x in root.scoreslist]
+            item_strings: [x[0] + ' ' + str(x[1]['score']) for x in app.thescores]
         BoxLayout:
             orientation:'horizontal'
             size_hint_y: None
