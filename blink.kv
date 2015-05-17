@@ -1,5 +1,20 @@
 #: import main __main__
 
+ScreenManager:
+    id: screen_manager
+    Homescreen:
+        id: home_screen
+        name: 'home'
+        manager: screen_manager
+    BlinkGame:
+        id: blink_game
+        name: 'game'
+        manager: screen_manager
+    ScoreScreen:
+        id: score_screen
+        name: 'scorescreen'
+        manager: screen_manager
+
 <BlinkButton>:
     background_color:(0.6, 0.937, 0.133,1)
     on_press: self.win_or_not()
@@ -22,6 +37,10 @@
             Button:
                 text: 'Quit'
                 on_press: app.stop()
+            Button:
+                text: 'View Scores'
+                on_press: root.manager.current = 'scorescreen'
+
 
 <BlinkGame>:
     BoxLayout:
@@ -76,3 +95,24 @@
             Label:
                 id:timer
                 text: "Time : {}".format(root.TIMER)
+
+<ScoreScreen>
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: "Your Scores"
+        ListView:
+            item_strings: [x[0] + ' ' + str(x[1]['score']) for x in root.scoreslist]
+        BoxLayout:
+            orientation:'horizontal'
+            size_hint_y: None
+            height: "80dp"
+            Button:
+                text: 'Goto game'
+                on_press: root.manager.current = 'game'
+            Button:
+                text: 'Quit'
+                on_press: app.stop()
+            Button:
+                text: 'Back to Home'
+                on_press: root.manager.current = 'home'
