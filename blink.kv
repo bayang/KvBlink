@@ -90,6 +90,9 @@ ScreenManager:
             Button:
                 text: "Back to Home"
                 on_press: root.manager.current = 'home'
+            Button:
+                text: 'View Scores'
+                on_press: root.manager.current = 'scorescreen'
             Label:
                 text: "Score : {}".format(app.SCORE)
             Label:
@@ -100,6 +103,8 @@ ScreenManager:
     BoxLayout:
         orientation: 'vertical'
         Label:
+            size_hint_y: None
+            height: "80dp"
             text: "Your Scores"
         ListView:
             item_strings: [x[0] + '     Score : ' + str(x[1]['score']) for x in sorted(app.thescores, key=lambda x:x[1]['score'], reverse=True)]
